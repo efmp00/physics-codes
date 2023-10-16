@@ -1,3 +1,13 @@
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# Authors: Edy Alberto Flores Leal
+#          Ernesto Guzmán Saleh @ernestosaleh
+# Date:    16/October/2023
+# CONTEXT
+# Practical example of the usage of the Fourth-Order Runge-Kutta Method. In this code, we provide a numerical approach to the Classical Simple Pendulum system. We
+# solve the differential equation θ'' + (mg/l)sin(θ) = 0 obtained from the Euler-Lagrange equations using this numerical method. For more details about the
+# theoretical and numerical approach, please consult the pdf available in this folder. 
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 # Libraries
 import numpy as np
 import matplotlib.pyplot as plt
@@ -38,6 +48,10 @@ def RK4(f, x0, y0, z0, h):
     return y1, z1
 
 # Differential equations
+# Remember that we start with a Nonlinear Second-Order ODE θ'' + (mg/l)sin(θ) = 0. To use the RK4 method, we transform this ODE into two First-Order ODE:
+# dθ/dt = ω
+# dω/dt = d^2θ/dt^2 = -(mg/l)sin(θ)
+
 def f(t, θ, ω):
     return ω, -(m * g / l) * np.sin(θ)
 
@@ -56,6 +70,7 @@ import matplotlib.pyplot as plt
 plt.rcParams['text.usetex'] = True
 plt.rcParams['font.family'] = 'serif'
 plt.rcParams.update({'font.size': 16})
+
 # Plot
 plt.plot(t, θ, label = r'Angle $\theta(t)$')
 plt.plot(t, ω, label = r'Angular velocity $\omega(t)$')
