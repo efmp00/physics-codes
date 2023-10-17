@@ -63,8 +63,6 @@ def f(t, θ, ω):
 for i in range(n - 1):
     θ[i + 1], ω[i + 1] = RK4(f, t[i], θ[i], ω[i], Δt)
 
-print(θ[1])
-
 # Plot parameters
 import matplotlib.pyplot as plt
 plt.rcParams['text.usetex'] = True
