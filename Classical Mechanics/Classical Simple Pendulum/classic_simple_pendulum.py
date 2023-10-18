@@ -26,7 +26,7 @@ t_0 = 0                       # Initial time (s)
 t_f = 10                      # Final time   (s)
 Δt = 0.01                     # Step size    (s)
 n = int((t_f - t_0) / Δt) + 1 # Iterations
-t = np.linspace(t_0, t_f, n)    # Time vector  (s)
+t = np.linspace(t_0, t_f, n)  # Time vector  (s)
 
 # Fourth-Order Runge-Kutta function
 def RK4(f, x0, y0, z0, h):
